@@ -15,7 +15,7 @@ def start(b):
     if latestVersion != _version:
         # theres an update
         with open("newBread.py", "w") as nf:
-            code = requests.get("https://mdxwarriorxop.github.io/bread/bread.txt")
+            code = requests.get("https://mdxwarriorxop.github.io/bread/bread.py")
             nf.write(str(code.content))
             
         os.rename("bread.py", "oldBread.py")
