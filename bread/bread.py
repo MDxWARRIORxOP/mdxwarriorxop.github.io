@@ -16,7 +16,7 @@ def start(b):
         # theres an update
         with open("newBread.py", "w") as nf:
             code = requests.get("https://mdxwarriorxop.github.io/bread/bread.py")
-            nf.write(str(code.content))
+            nf.write(str(code.content.decode("UTF-8")))
             
         os.rename("bread.py", "oldBread.py")
         os.rename("newBread.py", "bread.py")
