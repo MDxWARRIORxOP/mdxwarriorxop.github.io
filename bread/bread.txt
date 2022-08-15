@@ -1,5 +1,6 @@
 import json
 import sys
+import os
 import time
 import requests
 
@@ -13,7 +14,14 @@ def start(b):
     
     if latestVersion != _version:
         # theres an update
-        pass
+        with open("newBread.py", "w") as nf:
+            code = requests.get("https://mdxwarriorxop.github.io/bread/bread.txt")
+            nf.write(str(code.content))
+            
+        os.rename("bread.py", "oldBread.py")
+        os.rename("newBread.py", "bread.py")
+        os.system(f"python {os.getcwd()}/bread.py")
+            
     
     # start game
     if not(b):      
